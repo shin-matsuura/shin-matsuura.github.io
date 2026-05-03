@@ -251,19 +251,19 @@ h3 {
 
 .paper {
   display: grid;
-  grid-template-columns: 72px 1fr;
+  grid-template-columns: 120px 1fr;
   gap: 24px;
   padding: 22px 0;
   border-top: 1px solid var(--line);
 }
-
 .paper:first-of-type { margin-top: 4px; }
 
 .paper-year {
   color: var(--accent-dark);
   font-weight: 700;
-  font-size: 17px;
+  font-size: 14px;
   padding-top: 2px;
+  white-space: nowrap;
 }
 
 .paper-meta {
