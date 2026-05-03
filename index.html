@@ -7,21 +7,31 @@
   <meta name="description" content="Academic homepage of Shin Matsuura" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Theme toggle: sun (light) and moon (dark) */
+    .theme-toggle{
+      width:36px;height:36px;border-radius:18px;border:none;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;background:transparent;padding:0;
+    }
+    .theme-dot{width:18px;height:18px;border-radius:50%;display:block;transition:all .3s ease;box-shadow:0 0 0 4px transparent inset}
+    /* Sun: white core with blue glow positioned left */
+    .theme-dot.sun{background:#fff; box-shadow:0 0 12px rgba(66,133,244,0.45); transform: translateX(-4px);}
+    /* Moon: black/purple core with subtle glow positioned right */
+    .theme-dot.moon{background:linear-gradient(135deg,#1f0536,#2b002f); box-shadow:0 0 10px rgba(139,0,255,0.28); transform: translateX(4px);}
+  </style>
 </head>
 <body data-theme="light">
   <header class="site-header">
     <a class="site-title" href="#">Shin Matsuura</a>
     <nav class="nav" aria-label="Main navigation">
-      <a href="#research">Research</a>
+      <a href="#news">News</a>
       <a href="#papers">Papers</a>
+      <a href="#talk">Talk</a>
       <a href="#teaching">Teaching</a>
-      <a href="#contact">Contact</a>
       <a class="cv-link" href="cv.pdf">CV</a>
       <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
         <span class="theme-dot"></span>
-        <span class="theme-label">Theme</span>
       </button>
     </nav>
   </header>
@@ -29,33 +39,20 @@
   <main>
     <section class="hero">
       <div class="hero-text">
-        <p class="eyebrow">Philosophy · Logic · Language</p>
-        <h1>Shin Matsuura</h1>
         <p class="lead">
           I am a PhD student in Philosophy at the CUNY Graduate Center. My primary interests are philosophy of language and philosophical logic, especially non-classical logic, truth, analyticity, and the structure of meaning.
         </p>
-        <div class="hero-links">
-          <a href="#papers">Selected papers</a>
-          <a href="cv.pdf">Download CV</a>
-        </div>
       </div>
       <div class="portrait-wrap">
         <img class="portrait" src="profile.jpg" alt="Portrait of Shin Matsuura" />
       </div>
     </section>
 
-    <section id="research" class="section">
-      <h2>Research</h2>
+    <section id="news" class="section">
+      <h2>News</h2>
       <p>
-        My work sits at the intersection of philosophical logic, semantics, and metaphysics. I am especially interested in how formal systems illuminate issues about analyticity, truth, modality, and linguistic structure.
+        Updates on recent work, talks, and academic activities.
       </p>
-      <div class="interests">
-        <span>Non-classical logic</span>
-        <span>Philosophy of language</span>
-        <span>Truth theory</span>
-        <span>Modal logic</span>
-        <span>Social ontology</span>
-      </div>
     </section>
 
     <section id="papers" class="section">
@@ -81,6 +78,13 @@
           <p class="paper-meta">Work in progress. Metasemantics, social kinds, reference shift.</p>
         </div>
       </article>
+    </section>
+
+    <section id="talk" class="section">
+      <h2>Talk</h2>
+      <p>
+        Presentations and talks at conferences and workshops.
+      </p>
     </section>
 
     <section id="teaching" class="section">
@@ -113,11 +117,9 @@
     const savedTheme = localStorage.getItem("site-theme");
     const body = document.body;
     const button = document.querySelector(".theme-toggle");
-    const label = document.querySelector(".theme-label");
 
     function applyTheme(theme) {
       body.dataset.theme = theme;
-      label.textContent = theme === "dark" ? "Black/Purple" : "White/Blue";
       localStorage.setItem("site-theme", theme);
     }
 
