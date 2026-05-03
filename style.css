@@ -318,4 +318,14 @@ footer {
     grid-template-columns: 1fr;
     gap: 6px;
   }
+  h1,
+h2,
+h3,
+.site-title,
+.section-title,
+.paper-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
 }
+}
+
